@@ -23,9 +23,6 @@ class IndexView(generic.ListView):
         ).order_by('-pub_date')[:5]
 
 
-# def detail(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/detail.html', {'question': question})
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
@@ -37,9 +34,6 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 
-# def results(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/results.html', {'question': question})
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
